@@ -51,6 +51,7 @@ xfce_apps=(
 
 gnome_apps=(
     "gnome"
+    "gnome-tweaks"
 )
 
 kde_apps=(
