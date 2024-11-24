@@ -106,7 +106,7 @@ echo "Setting ZSH_THEME to random"
 sed -i 's/ZSH_THEME=".*"/ZSH_THEME="random"/' /root/.zshrc
 
 echo "Adding update alias"
-echo 'update="pacman -Syyuu --noconfirm"' >> /root/.zshrc
+echo 'alias update="pacman -Syyuu --noconfirm"' >> /root/.zshrc
 
 echo "Adding LSD aliases"
 cat << EOF >> /root/.zshrc
