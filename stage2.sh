@@ -145,6 +145,13 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
     echo "initrd /initramfs-linux-zen.img" >> /boot/loader/entries/arch.conf
     echo "options root=PARTUUID=$(blkid -s PARTUUID -o value $2) rootflags=subvol=system rw loglevel=3 net.ifnames=0 biosdevname=0 mitigations=off" >> /boot/loader/entries/arch.conf
 
+    echo "Adding Arch Linux Snap entry"
+
+    echo "title Arch Linux Snap" > /boot/loader/entries/arch-snap.conf
+    echo "linux /vmlinuz-linux-zen" >> /boot/loader/entries/arch-snap.conf
+    echo "initrd /initramfs-linux-zen.img" >> /boot/loader/entries/arch-snap.conf
+    echo "options root=PARTUUID=$(blkid -s PARTUUID -o value $2) rootflags=subvol=snap rw loglevel=3 net.ifnames=0 biosdevname=0 mitigations=off" >> /boot/loader/entries/arch-snap.conf
+
 else
     echo "Configuring GRUB for BIOS"
     mkdir /boot/grub -p
