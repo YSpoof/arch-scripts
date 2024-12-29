@@ -52,6 +52,12 @@ xfce_apps=(
     "xfce4-taskmanager"
     "xfce4-clipman-plugin"
     "network-manager-applet"
+    "gvfs"
+    "gvfs-afc"
+    "gvfs-mtp"
+    "gvfs-gphoto2"
+    "gvfs-smb"
+    "gvfs-wsdd"
 )
 
 gnome_apps=(
