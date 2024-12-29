@@ -33,6 +33,7 @@ common_apps=(
     "noto-fonts-emoji"
     "fastfetch"
     "sof-firmware"
+    "ttf-nerd-fonts-symbols"
 )
 
 xfce_apps=(
