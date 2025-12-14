@@ -68,6 +68,14 @@ gnome_apps=(
 kde_apps=(
     "plasma"
     "konsole"
+    "kcalc"
+    "dolphin"
+    "ark"
+    "kate"
+    "ffmpegthumbs"
+    "okular"
+    "gwenview"
+    "kwalletmanager"
 )
 
 kodi_apps=(
@@ -82,37 +90,35 @@ install_gnome() {
     echo "Installing GNOME..."
     pacman -Sy --noconfirm --needed "${gnome_apps[@]}" "${common_apps[@]}" "${pipewire[@]}"
 
-    create_user
-
     echo "Enabling gdm..."
     systemctl enable gdm
+
+    create_user
 }
 
 install_kde() {
     echo "Installing KDE..."
-    pacman -Sy --noconfirm --needed "${kde_apps[@]}" "${common_apps[@]}" "${pulseaudio[@]}"
-
-    create_user
+    pacman -Sy --noconfirm --needed "${kde_apps[@]}" "${common_apps[@]}" "${pipewire[@]}"
 
     echo "Enabling sddm..."
     systemctl enable sddm
+
+    create_user
 }
 
 install_xfce() {
     echo "Installing XFCE..."
     pacman -Sy --noconfirm --needed "${xfce_apps[@]}" "${common_apps[@]}" "${pulseaudio[@]}"
 
-    create_user
-
     echo "Enabling lightdm..."
     systemctl enable lightdm
+
+    create_user
 }
 
 install_kodi() {
     echo "Installing Kodi..."
     pacman -Sy --noconfirm --needed "${kodi_apps[@]}" "${pulseaudio[@]}"
-
-    create_user
 
     echo "Setting up lightdm autologin..."
     sed -i "s/#autologin-user=/autologin-user=$username/" /etc/lightdm/lightdm.conf
@@ -122,6 +128,9 @@ install_kodi() {
 
     echo "Enabling lightdm..."
     systemctl enable lightdm
+
+    create_user
+
 }
 
 create_user() {
