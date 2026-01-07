@@ -99,7 +99,7 @@ echo "Downloading and running stage 2"
 curl -s -L -o /mnt/stage2.sh https://lzart.com.br/stage2.sh
 chmod +x /mnt/stage2.sh
 if [[ $1 == *nvme* || $1 == *mmcblk* ]]; then
-    arch-chroot /mnt /stage2.sh $2 ${1}p2
+    arch-chroot -S /mnt /stage2.sh $2 ${1}p2
 else
-    arch-chroot /mnt /stage2.sh $2 ${1}2
+    arch-chroot -S /mnt /stage2.sh $2 ${1}2
 fi
