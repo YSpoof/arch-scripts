@@ -99,8 +99,10 @@ sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd
 
 # OH-MY-ZSH for root
 echo "Installing oh-my-zsh"
-chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+echo "Changinh shell to zsh for root"
+chsh -s $(which zsh) root
 
 echo "Setting ZSH_THEME to random"
 sed -i 's/ZSH_THEME=".*"/ZSH_THEME="random"/' /root/.zshrc
